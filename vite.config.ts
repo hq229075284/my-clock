@@ -27,6 +27,7 @@ export default defineConfig({
         globals: {
           vue: 'Vue',
         },
+        // entryFileNames: '[name].[hash:6].[format].js',
       },
     },
   },
