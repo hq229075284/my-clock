@@ -1,10 +1,10 @@
-<script setup lang="tsx">
+<script setup  lang="tsx">
 import HelloWorld from './components/HelloWorld.vue'
 
 const a = { x: 1 }
 
 function render() {
-  return <span>{a.x}</span>
+  return <span class={'asdasd'}>{a.x}</span>
 }
 
 console.log(render(), 2)
@@ -20,7 +20,7 @@ console.log(render(), 2)
         <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
       </a>
     </div>
-    <HelloWorld msg="Vite + Vue" />
+    <HelloWorld msg="Vite + Vue"></HelloWorld>
     <span>{{ a.x }}</span>
   </div>
 </template>
