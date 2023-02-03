@@ -53,5 +53,7 @@ module.exports = {
       ts: 'never',
       tsx: 'never',
     }],
+    // 作用于引入模块的那个文件。以下配置表示在任何目录下的vite.config.ts中可以使用引入列在package.json的devDependencies中的依赖
+    'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*/vite.config.ts'] }],
   },
 }
