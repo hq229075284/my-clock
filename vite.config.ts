@@ -4,7 +4,11 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  base: './',
+  plugins: [
+    vue(),
+    vueJsx(),
+  ],
   build: {
     target: 'chrome51', // 目标版本兼容
     minify: false, // 不压缩

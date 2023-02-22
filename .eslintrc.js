@@ -24,6 +24,8 @@ module.exports = {
     // 'no-unused-vars': 'error',
     indent: ['error', 2],
     semi: ['error', 'never', { beforeStatementContinuationChars: 'always' }],
+    'consistent-return': 'off',
+    'linebreak-style': 'off',
 
     // eslint-plugin-vue
     'vue/html-self-closing': ['error', {
@@ -53,7 +55,27 @@ module.exports = {
       ts: 'never',
       tsx: 'never',
     }],
-    // 作用于引入模块的那个文件。以下配置表示在任何目录下的vite.config.ts中可以使用引入列在package.json的devDependencies中的依赖
+    // 作用于引入模块的那个文件。以下配置表示在任何目录下的vite.config.ts中可以引入列在package.json的devDependencies中的依赖
     'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*/vite.config.ts'] }],
+  },
+
+  settings: {
+    'import/extensions': ['.ts', '.tsx', '.js', '.jsx', '.vue'],
+    'import/resolver': {
+      node: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.mjs', '.vue'],
+        pathFilter(pkg, path, relativePath) {
+          if (pkg.name === 'unplugin-vue-components') {
+            if (['vite', 'resolvers'].includes(relativePath)) return `./dist/${relativePath}`
+          }
+        },
+      },
+      alias: {
+        map: [
+          ['@', './src'],
+        ],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.mjs', '.vue'],
+      },
+    },
   },
 }
