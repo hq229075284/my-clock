@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 // vite-plugin-imp
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import path from 'path'
 
 const USE_FOR_BUILD_NPM_PKG = {
   lib: {
@@ -34,10 +35,15 @@ export default defineConfig({
     vue(),
     vueJsx(),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   build: {
     target: 'chrome51', // 目标版本兼容
     minify: false, // 不压缩
     // 此配置仅在npm包构建时使用。在完整项目中【不需要】此配置
-    ...USE_FOR_BUILD_NPM_PKG,
+    // ...USE_FOR_BUILD_NPM_PKG,
   },
 })
