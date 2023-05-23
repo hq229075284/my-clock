@@ -28,6 +28,7 @@ module.exports = {
     // 换行符统一使用CRLF，防止在代码合并时，由于换行符不同而引起大范围的冲突
     'linebreak-style': ['error', 'unix'],
     'no-shadow': 'off',
+    'no-use-before-define': 'off',
 
     //  @typescript-eslint/eslint-plugin
     '@typescript-eslint/no-shadow': 'error',

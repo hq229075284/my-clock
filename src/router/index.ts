@@ -9,7 +9,7 @@ const routes:RouteRecordRaw[] = [
   },
   {
     path: '/clock',
-    component: () => import('@/views/Clock.vue'),
+    component: () => import('@/views/Clock/index.vue'),
   },
 ]
 
