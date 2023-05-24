@@ -10,7 +10,13 @@
     <button @click="reset">
       reset
     </button>
-    <Menu></Menu>
+    <Menu :configs="configs" v-slot="config">
+      <div class="menu-cell">
+        <div class="menu-name">
+          {{ config.name }}
+        </div>
+      </div>
+    </Menu>
   </div>
 </template>
 
@@ -52,5 +58,22 @@ function notify_complete() {
   }
   window.addEventListener('click', onClick)
 }
+
+const configs = [
+  {
+    name: '常亮',
+    icon: '',
+    click() {
+      console.log(1)
+    },
+  },
+  {
+    name: '氛围',
+    icon: '',
+    click() {
+      console.log(2)
+    },
+  },
+]
 
 </script>

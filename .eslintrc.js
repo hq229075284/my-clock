@@ -51,6 +51,7 @@ module.exports = {
         max: 1,
       },
     }],
+    'vue/multi-word-component-names': 'off',
 
     // eslint-plugin-import
     'import/extensions': ['error', 'ignorePackages', {
