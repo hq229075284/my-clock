@@ -6,8 +6,12 @@
 // import Clock from './components/Clock.vue'
 </script>
 
-<style scoped>
+<style>
 *{
   box-sizing: border-box;
+}
+html,body,#app{
+  width: 100%;
+  height: 100%;
 }
 </style>

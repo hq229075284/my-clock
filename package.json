@@ -17,6 +17,7 @@
     "vue-router": "^4.2.1"
   },
   "devDependencies": {
+    "@dc/postcss-px2var": "0.0.4",
     "@types/lodash": "^4.14.194",
     "@types/node": "^18.14.0",
     "@vitejs/plugin-vue": "^4.0.0",

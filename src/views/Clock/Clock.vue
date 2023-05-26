@@ -9,14 +9,14 @@ import { Text } from 'konva/lib/shapes/Text'
 
 const tomatoClockStore = useTomatoClockStore()
 
-const containerRef = ref<HTMLDivElement>()
+const targetRef = ref<HTMLDivElement>()
 
 let stage:Stage|undefined
 let layer:Layer
 
 const emit = defineEmits(['notify:complete'])
 function createStage() {
-  const div = containerRef.value
+  const div = targetRef.value
   if (!div) {
     return
   }
@@ -211,14 +211,30 @@ defineExpose({ end, start, reset })
 </script>
 
 <template>
-  <div ref="containerRef">
+  <div class="container">
+    <div ref="targetRef" class="stage">
+    </div>
   </div>
 </template>
 
-<style scoped>
-div {
-  border: 1PX solid;
-  width: 400PX;
-  height: 400PX;
+<style lang="less" scoped>
+.container {
+  position: relative;
+  &::before{
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top:100%;
+  }
+}
+.stage{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width: 80%;
+  height: 80%;
+  margin: auto;
 }
 </style>

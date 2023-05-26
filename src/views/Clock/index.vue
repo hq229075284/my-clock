@@ -1,7 +1,7 @@
 <template>
   <div class="tomato-clock">
-    <Clock ref="clockRef" @notify:complete="notify_complete"></Clock>
-    <button @click="start">
+    <Clock ref="clockRef" @notify:complete="notifyComplete"></Clock>
+    <!-- <button @click="start">
       start
     </button>
     <button @click="end">
@@ -9,7 +9,7 @@
     </button>
     <button @click="reset">
       reset
-    </button>
+    </button> -->
     <Menu :configs="configs" v-slot="config">
       <div class="menu-cell">
         <div class="menu-name">
@@ -38,7 +38,7 @@ function reset() {
 }
 
 let startAudio:HTMLAudioElement
-function notify_start() {
+function notifyStart() {
   startAudio = document.createElement('audio')
   const audioSrc = 'http://m801.music.126.net/20230523160451/a2b125cd8d71c540a652d182bfd48afa/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/25079094413/8a75/9379/a93b/043a37c4180128c8e2c9f314f6128541.mp3'
   startAudio.src = audioSrc
@@ -46,7 +46,7 @@ function notify_start() {
   startAudio.play()
 }
 
-function notify_complete() {
+function notifyComplete() {
   startAudio.pause()
   const audioSrc = 'http://m801.music.126.net/20230523160451/a2b125cd8d71c540a652d182bfd48afa/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/25079094413/8a75/9379/a93b/043a37c4180128c8e2c9f314f6128541.mp3'
   const audio = document.createElement('audio')
@@ -77,3 +77,10 @@ const configs = [
 ]
 
 </script>
+
+<style lang="less" scoped>
+.tomato-clock{
+  height: 100%;
+  background: url('@/assets/1.jpeg') center / cover;
+}
+</style>

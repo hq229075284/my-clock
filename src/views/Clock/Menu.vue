@@ -1,6 +1,6 @@
 <template>
   <div class="tomato-clock-menu">
-    <div v-for="(config,idx) in configs" :key="idx">
+    <div v-for="(config,idx) in configs" :key="idx" class="menu-item">
       <slot v-bind="config"></slot>
     </div>
   </div>
@@ -16,3 +16,9 @@ const props = withDefaults(
 
 const configs = toRef(props, 'configs')
 </script>
+
+<style scoped lang="less">
+.menu-item{
+  font-size: 20px;
+}
+</style>
